@@ -39,14 +39,14 @@ RUN echo "Port 2122" >> /etc/ssh/sshd_config
 ADD .bashrc /root/.bashrc
 
 # Install Java 8
-RUN cd opt && wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u72-b15/jdk-8u72-linux-x64.tar.gz" &&\
-   tar xzf jdk-8u72-linux-x64.tar.gz && rm -rf jdk-8u72-linux-x64.tar.gz
+RUN cd opt && wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u161-b12/2f38c3b165be4555a1fa6e98c45e0808/jdk-8u161-linux-x64.tar.gz" &&\
+   tar xzf jdk-8u161-linux-x64.tar.gz && rm -rf jdk-8u161-linux-x64.tar.gz
 
-ENV JAVA_HOME /opt/jdk1.8.0_72
-ENV PATH $PATH:/opt/jdk1.8.0_72/bin:/opt/jdk1.8.0_72/jre/bin:/etc/alternatives:/var/lib/dpkg/alternatives
+ENV JAVA_HOME /opt/jdk1.8.0_161
+ENV PATH $PATH:/opt/jdk1.8.0_161/bin:/opt/jdk1.8.0_161/jre/bin:/etc/alternatives:/var/lib/dpkg/alternatives
 
-RUN echo 'export JAVA_HOME="/opt/jdk1.8.0_72"' >> ~/.bashrc && \
-    echo 'export PATH="$PATH:/opt/jdk1.8.0_72/bin:/opt/jdk1.8.0_72/jre/bin"' >> ~/.bashrc && \
-    bash ~/.bashrc && cd /opt/jdk1.8.0_72/ && update-alternatives --install /usr/bin/java java /opt/jdk1.8.0_72/bin/java 1
+RUN echo 'export JAVA_HOME="/opt/jdk1.8.0_161"' >> ~/.bashrc && \
+    echo 'export PATH="$PATH:/opt/jdk1.8.0_161/bin:/opt/jdk1.8.0_161/jre/bin"' >> ~/.bashrc && \
+    bash ~/.bashrc && cd /opt/jdk1.8.0_161/ && update-alternatives --install /usr/bin/java java /opt/jdk1.8.0_161/bin/java 1
     
 ENTRYPOINT ["/bin/bash"]
