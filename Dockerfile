@@ -11,8 +11,8 @@ RUN \
   rm -rf /var/lib/apt/lists/*
 
 # Set UTF-8 locale
-RUN locale-gen en_US.UTF-8 && \
-    echo 'LANG="en_US.UTF-8"' > /etc/default/locale
+#RUN locale-gen en_US.UTF-8 && \
+#echo 'LANG="en_US.UTF-8"' > /etc/default/locale
 
 # Enable passwordless ssh authentication
 RUN apt-get remove -y openssh-client
